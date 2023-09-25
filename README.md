@@ -57,7 +57,7 @@ Variables defined outside of a function are global.
 The use of undefined variables in expression has undefined behavior.
 
 ## FUNCTIONS
-Syntax For Defining A Function
+### Syntax For Defining A Function
 ```python
 fun <functionName>(<parameter1>, <parameter2>, ..., <parameterN>) {
     <statement1>
@@ -143,7 +143,7 @@ Fun code that does not abide by the spec has undefined behavior.
 
 Additionally, having statements/function declarations that span multiple lines or share the same line is also undefined behavior. Basically, new lines separate statements/fun decs from each other.
 
-##P RINT
+## PRINT
 ### Print Syntax
 ```python
 print(<expression>)
