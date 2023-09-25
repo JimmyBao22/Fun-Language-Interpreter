@@ -156,3 +156,62 @@ and it prints the unsigned 64 bit value of the expression passed to it.
   - 5/2 is not a valid statement (it's just an expression)
   - x = 5/2 is a valid statement (variable assignment)
   - f(5) % 5 is not a valid statement (it's just an expression)
+ 
+# Using The Compiler
+## The command line interface:
+
+./p3 <name>
+
+The compiler (p3) reads a fun program from stdin and produces the compiled
+output as x86-64 assembly to stdout.
+
+You can compile the assembly to produce an executable
+
+for example:
+
+    ./p3 < t0.fun > t0.s
+    gcc -o t0.run -static t0.s
+    ./t0.run
+
+The Makefile automates those tasks
+
+### Adding Tests
+Adding testcase, create 2 files:
+
+       <name>.fun     contains the fun program
+       <name>.ok      contains the expected output
+
+### Generated files:
+
+for each test:
+
+    <test>.out    output from running the test
+    <test>.diff   differences between the actual and expected output
+    <test>.result pass/fail
+
+### To run tests:
+
+    make test
+
+### To make the output less noisy:
+
+    make -s test
+
+### To run one test
+
+    make -s t0.test
+
+### To run by hand
+
+    ./p1 < t0.fun
+
+### File names used by the Makefile:
+
+\<test\>.fun    &emsp;  -- fun program<br>
+\<test\>.s      &emsp;  -- the equivalent x86-64 assembly<br>
+\<test\>.run    &emsp;  -- the equivalent x86-64 executable<br>
+\<test\>.out    &emsp;  -- the output from running \<test\>.run<br>
+\<test\>.ok     &emsp;  -- the expected output<br>
+\<test\>.diff   &emsp;  -- difference between \<test\>.out and \<test\>.ok<br>
+\<test\>.result &emsp;  -- pass/fail<br>
+\<test\>.time   &emsp;  -- how long it took to run \<test\>.run<br>
